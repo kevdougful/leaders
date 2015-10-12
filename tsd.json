@@ -1,0 +1,66 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "mime/mime.d.ts": {
+      "commit": "ecbc16ebb2133e70634c018e16842f8278f7f8c1"
+    },
+    "angularjs/angular.d.ts": {
+      "commit": "ecbc16ebb2133e70634c018e16842f8278f7f8c1"
+    },
+    "jquery/jquery.d.ts": {
+      "commit": "ecbc16ebb2133e70634c018e16842f8278f7f8c1"
+    },
+    "express/express.d.ts": {
+      "commit": "ecbc16ebb2133e70634c018e16842f8278f7f8c1"
+    },
+    "node/node.d.ts": {
+      "commit": "571bf28dd6c3266e131e412c894378b8c4af5064"
+    },
+    "sequelize/sequelize.d.ts": {
+      "commit": "ecbc16ebb2133e70634c018e16842f8278f7f8c1"
+    },
+    "serve-static/serve-static.d.ts": {
+      "commit": "ecbc16ebb2133e70634c018e16842f8278f7f8c1"
+    },
+    "bluebird/bluebird.d.ts": {
+      "commit": "ecbc16ebb2133e70634c018e16842f8278f7f8c1"
+    },
+    "validator/validator.d.ts": {
+      "commit": "ecbc16ebb2133e70634c018e16842f8278f7f8c1"
+    },
+    "lodash/lodash.d.ts": {
+      "commit": "ecbc16ebb2133e70634c018e16842f8278f7f8c1"
+    },
+    "async/async.d.ts": {
+      "commit": "571bf28dd6c3266e131e412c894378b8c4af5064"
+    },
+    "mocha/mocha.d.ts": {
+      "commit": "571bf28dd6c3266e131e412c894378b8c4af5064"
+    },
+    "chai/chai.d.ts": {
+      "commit": "571bf28dd6c3266e131e412c894378b8c4af5064"
+    },
+    "assertion-error/assertion-error.d.ts": {
+      "commit": "571bf28dd6c3266e131e412c894378b8c4af5064"
+    },
+    "sinon/sinon.d.ts": {
+      "commit": "571bf28dd6c3266e131e412c894378b8c4af5064"
+    },
+    "gulp-nodemon/gulp-nodemon.d.ts": {
+      "commit": "571bf28dd6c3266e131e412c894378b8c4af5064"
+    },
+    "gulp/gulp.d.ts": {
+      "commit": "571bf28dd6c3266e131e412c894378b8c4af5064"
+    },
+    "q/Q.d.ts": {
+      "commit": "571bf28dd6c3266e131e412c894378b8c4af5064"
+    },
+    "orchestrator/orchestrator.d.ts": {
+      "commit": "571bf28dd6c3266e131e412c894378b8c4af5064"
+    }
+  }
+}
