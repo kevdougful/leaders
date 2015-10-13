@@ -2,8 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
 	var Team = sequelize.define('Team', {
-		Name: DataTypes.STRING,
-		TeamScore: DataTypes.FLOAT
+		Name: DataTypes.STRING
 	}, {
 		classMethods: {
 			associate: function(models) {
@@ -18,4 +17,4 @@ module.exports = function(sequelize, DataTypes) {
 	});
 	
 	return Team;
-}
+};
