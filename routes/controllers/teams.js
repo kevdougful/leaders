@@ -27,8 +27,7 @@ module.exports = function(models) {
 	
 	var createTeam = function(req, res, next) {
 		models.Team.create({
-			Name: req.body.Name,
-			Score: req.body.Score
+			Name: req.body.Name
 		}).then(function(team) {
 			respond(res, 200, true, null, team);
 		}).catch(function(err) {
@@ -38,8 +37,7 @@ module.exports = function(models) {
 	
 	var updateTeam = function(req, res, next) {
 		models.Team.update({
-			Name: req.body.Name,
-			Score: req.body.Score
+			Name: req.body.Name
 		}, {
 			where: {
 				id: req.params.team_id
@@ -57,4 +55,4 @@ module.exports = function(models) {
 		createTeam: createTeam,		// POST /api/team/create
 		updateTeam: updateTeam		// PUT /api/team/:sample_id/update
 	};
-}
+};

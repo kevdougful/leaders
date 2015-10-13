@@ -11,6 +11,6 @@ app.service('TeamService', function($http, API) {
 		return $http.post(API.TEAMS.CREATE, team);
 	};
 	this.update = function(id, team) {
-		return $http.put(API.TEAMS.UPDATE + id);
+		return $http.put(API.TEAMS.UPDATE + id, team);
 	};
 });
