@@ -21,7 +21,7 @@ var start = function(environment) {
 			},
 			ignore: ['./node_modules/**']
 		}).on('restart', function() {
-			
+
 		});
 	};
 };
@@ -74,10 +74,14 @@ gulp.task('copy', function() {
 		// Bootstrap
 		'node_modules/bootstrap/dist/js/bootstrap.js',
 		// jQuery
-		'node_modules/jquery/dist/jquery.js'
+		'node_modules/jquery/dist/jquery.js',
+		// Formly
+		'node_modules/angular-formly/dist/formly.js',
+		'node_modules/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js',
+		'node_modules/api-check/dist/api-check.js'
 	])
 	.pipe(gulp.dest('./app/lib/js'));
-	
+
 	gulp.src([
 		// Bootstrap
 		'node_modules/bootstrap/dist/css/bootstrap.css',
