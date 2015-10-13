@@ -1,14 +1,14 @@
 'use strict';
 
 app.controller('CreateTeamController', CreateTeamController);
-function CreateTeamController($scope) {
+function CreateTeamController($scope, TeamService) {
   var vm = this;
 
   vm.team = {};
 
   vm.fields = [
     {
-      key: 'name',
+      key: 'Name',
       type: 'input',
       templateOptions: {
         type: 'text',
@@ -17,5 +17,8 @@ function CreateTeamController($scope) {
         placeholder: 'Bird Busters'
       }
     }
-  ]
+  ];
+  vm.onSubmit = function() {
+    TeamService.create(vm.team);
+  };
 }
