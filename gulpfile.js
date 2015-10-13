@@ -99,12 +99,12 @@ gulp.task('copy', function() {
 });
 
 // Minify
-gulp.task('compress',['compressjs', 'compresscss']);
+gulp.task('compress', ['compressjs', 'compresscss']);
 
 // Minify JavaScript
 gulp.task('compressjs', function() {
 	// Compress dependencies
-	gulp.src('./app/lib/js/*.js')
+	gulp.src(['./app/lib/js/*.js', '!./app/lib/js/*.min.js'])
 		.pipe(minify())
 		.pipe(rename({
 			extname: '.min.js'
@@ -115,7 +115,7 @@ gulp.task('compressjs', function() {
 // Minify CSS
 gulp.task('compresscss', function() {
 	// Compress dependencies
-	gulp.src('./app/lib/css/*.css')
+	gulp.src(['./app/lib/css/*.css', '!./app/lib/css/*.min.css'])
 		.pipe(minifycss())
 		.pipe(rename({
 			extname: '.min.css'
