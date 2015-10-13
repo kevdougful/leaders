@@ -13,7 +13,7 @@
 				td {{ team.id }}
 				td.text-center {{ team.Name }}
 				td.text-right
-					button.btn.btn-default.btn-sm Edit
+					button.btn.btn-default.btn-sm(href="", ng-click="showEditModal(team)") Edit
 					button.btn.btn-default.btn-sm Remove
 			tr(ng-if="results.length == 0")
 				td(colspan="3")

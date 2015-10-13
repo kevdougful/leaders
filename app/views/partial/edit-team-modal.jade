@@ -1,0 +1,13 @@
+.modal.fade
+	.modal-dialog
+		.modal-content
+			.modal-header
+				button.close(type="button", ng-click="close('Cancel')", data-dismiss="modal") &times;
+				h4.modal-title Edit Team
+			.modal-body
+				label Team Name
+				input.form-control(type="text", ng-model="team.Name", required)
+			.modal-footer
+				button.btn.btn-default(type="button", ng-click="close('Cancel')", data-dismiss="modal") Cancel
+				button.btn.btn-default(type="button", ng-click="updateTeam('Cancel')", data-dismiss="modal") Save
+			
