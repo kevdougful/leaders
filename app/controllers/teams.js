@@ -5,6 +5,28 @@ app.controller('TeamsController', function($scope, TeamService, ModalService) {
     $scope.teams = data.object;
   });
   
+  $scope.newTeam = {};
+  
+  $scope.fields = [
+    {
+      key: 'Name',
+      type: 'input',
+      templateOptions: {
+        type: 'text',
+        label: 'Team Name',
+        placeholder: 'Bird Busters'
+      }
+    }
+  ];
+  
+  $scope.onSubmit = function() {
+    TeamService.create($scope.newTeam);
+    TeamService.getAll().success(function(data) {
+      $scope.teams = data.object;
+    });
+    $scope.newTeam = {};
+  };
+  
   $scope.showEditModal = function(team) {
     ModalService.showModal({
       templateUrl: 'partial/edit-team-modal',

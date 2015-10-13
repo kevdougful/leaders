@@ -1,3 +1,8 @@
+.container.container-shadow(style="margin-bottom: 10px;")
+	form(ng-submit="onSubmit()", name="form", novalidate)
+		formly-form(model="newTeam", fields="fields", form="form")
+			button.btn.btn-primary.submit-button(type="submit", ng-disabled="form.$invalid") Submit
+
 .container.container-shadow
 	table.table.table-striped
 		thead

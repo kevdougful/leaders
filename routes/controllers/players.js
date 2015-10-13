@@ -5,7 +5,9 @@ module.exports = function(models) {
 	
 	var getAll = function(req, res, next) {
 		models.Player.findAll({
-			// where
+			include: [
+				models.Team
+			]
 		}).then(function(player) {
 			respond(res, 200, true, null, player);
 		}).catch(function(err) {
@@ -28,7 +30,8 @@ module.exports = function(models) {
 	var createPlayer = function(req, res, next) {
 		models.Player.create({
 			Name: req.body.Name,
-			Score: req.body.score
+			Score: req.body.Score,
+			TeamId: req.body.TeamId
 		}).then(function(player) {
 			respond(res, 200, true, null, player);
 		}).catch(function(err) {
@@ -57,4 +60,4 @@ module.exports = function(models) {
 		createPlayer: createPlayer,		// POST /api/player/create
 		updatePlayer: updatePlayer		// PUT /api/player/:sample_id/update
 	};
-}
+};

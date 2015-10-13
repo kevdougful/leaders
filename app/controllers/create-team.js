@@ -20,5 +20,8 @@ function CreateTeamController($scope, TeamService) {
   ];
   vm.onSubmit = function() {
     TeamService.create(vm.team);
+    TeamService.getAll().success(function(data) {
+      $scope.teams = data.object;
+    });
   };
 }

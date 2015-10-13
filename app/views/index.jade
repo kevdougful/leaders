@@ -23,21 +23,9 @@ html(lang='en', ng-app="app")
             li
               a(href="/leaders") Leaders
             li.dropdown
-              a.dropdown-toggle(data-toggle="dropdown", role="button") Teams
-                span.caret
-              ul.dropdown-menu
-                li
-                  a(href="/teams") Team List
-                li
-                  a(href="/team/create") New Team
+              a(href="/teams") Teams
             li.dropdown
-              a.dropdown-toggle(data-toggle="dropdown", role="button") Players
-                span.caret
-              ul.dropdown-menu
-                li
-                  a(href="/teams") Player List
-                li
-                  a(href="/team/create") New Player
+              a(href="/players") Players
               
     div(ng-view)
     
