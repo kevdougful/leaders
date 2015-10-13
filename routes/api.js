@@ -10,12 +10,12 @@ var teamController = require('./controllers/teams')(models);
 router.get('/players', playerController.getAll);
 router.get('/player/:player_id', playerController.getById);
 router.post('/player/create', playerController.createPlayer);
-router.put('/player/:player_id/update', playerController.updatePlayer);
+router.put('/player/update/:player_id', playerController.updatePlayer);
 
 // *** Team Routes *** //
 router.get('/teams', teamController.getAll);
 router.get('/team/:team_id', teamController.getById);
 router.post('/team/create', teamController.createTeam);
-router.put('/team/:team_id/update', teamController.updateTeam);
+router.put('/team/update/:team_id', teamController.updateTeam);
 
 module.exports = router;
