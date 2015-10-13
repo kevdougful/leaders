@@ -1,28 +1,35 @@
 'use strict';
 
 var app = angular.module('app', [
-  'ngRoute'
+  'ngRoute', 'formly', 'formlyBootstrap'
 ])
 .config(function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/leaders', {
-      templateUrl: 'views/partial/leaderboard',
+      templateUrl: 'partial/leaderboard',
       controller: 'LeaderboardController'
     })
     .when('/teams', {
-      templateUrl: 'views/partial/teams',
+      templateUrl: 'partial/teams',
       controller: 'TeamsController'
     })
-    .when('/team/:teamId', {
-      templateUrl: 'views/partial/team',
+    .when('/team/id/:teamId', {
+      templateUrl: 'partial/team',
       controller: 'TeamController'
     })
+    .when('/team/create', {
+      templateUrl: 'partial/createteam'
+    })
     .when('/players', {
-      templateUrl: 'views/partial/players',
+      templateUrl: 'partial/players',
       controller: 'PlayersController'
     })
-    .when('/player/:playerId', {
-      templateUrl: 'views/partial/player',
+    .when('/player/create', {
+      templateUrl: 'partial/createplayer',
+      controller: 'CreatePlayerController'
+    })
+    .when('/player/id/:playerId', {
+      templateUrl: 'partial/player',
       controller: 'PlayerController'
     })
     .otherwise({ redirectTo: '/' })

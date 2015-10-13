@@ -1,0 +1,5 @@
+.container(ng-controller="CreateTeamController as vm")
+  form(ng-submit="vm.onSubmit()", name="vm.form", novalidate)
+    formly-form(model="vm.model", fields="vm.fields", vm.options="vm.options", form="vm.form")
+      button.btn.btn-primary.submit-button(type="submit", ng-disabled="vm.form.$invalid") Submit
+      button.btn.btn-default(type="button", ng-click="vm.option.resetModel()") Reset
