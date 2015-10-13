@@ -1,7 +1,7 @@
 'use strict';
 
 var app = angular.module('app', [
-  'ngRoute', 'ngResource', 'formly', 'formlyBootstrap'
+  'ngRoute', 'ngResource', 'formly', 'formlyBootstrap', 'angularModalService'
 ])
 .config(function($routeProvider, $locationProvider) {
   $routeProvider
