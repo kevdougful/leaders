@@ -28,7 +28,7 @@ module.exports = function(models) {
 	var createTeam = function(req, res, next) {
 		models.Team.create({
 			Name: req.body.Name,
-			Score: req.body.score
+			Score: req.body.Score
 		}).then(function(team) {
 			respond(res, 200, true, null, team);
 		}).catch(function(err) {
