@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var debug = require('debug')('leaders:app');
 var http = require('http');
+var models = require('./models');
 
 var app = express();
 var routes = require('./routes/index');
@@ -27,10 +28,14 @@ app.use('/', routes);
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-var server = http.createServer(app);
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+var server;
+models.sequelize.sync().then(function() {
+	server = http.createServer(app).listen(port, function() {
+		debug('Express server listening on port ' + port);
+	});
+	server.on('error', onError);
+	server.on('listening', onListening);
+});
 
 function normalizePort(val) {
 	var port = parseInt(val, 10);
