@@ -71,6 +71,7 @@ gulp.task('copy', function() {
 		// Angular
 		'node_modules/angular/angular.js',
 		'node_modules/angular-route/angular-route.js',
+		'node_modules/angular-resource/angular-resource.js',
 		// Bootstrap
 		'node_modules/bootstrap/dist/js/bootstrap.js',
 		// jQuery
