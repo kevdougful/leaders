@@ -15,4 +15,4 @@ app.constant('API', {
     DELETE: '/api/player/delete'
   },
   LEADERS: '/api/leaders'
-})
+});

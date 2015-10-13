@@ -13,7 +13,7 @@ var app = angular.module('app', [
       templateUrl: 'partial/teams',
       controller: 'TeamsController'
     })
-    .when('/team/id/:teamId', {
+    .when('/team/id/:id', {
       templateUrl: 'partial/team',
       controller: 'TeamController'
     })
@@ -28,10 +28,10 @@ var app = angular.module('app', [
       templateUrl: 'partial/createplayer',
       controller: 'CreatePlayerController'
     })
-    .when('/player/id/:playerId', {
+    .when('/player/id/:id', {
       templateUrl: 'partial/player',
       controller: 'PlayerController'
     })
     .otherwise({ redirectTo: '/' })
   $locationProvider.html5Mode(true);
-})
+});
