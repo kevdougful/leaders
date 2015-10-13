@@ -21,8 +21,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'app')));
 
-app.use('/', routes);
 app.use('/api', apiRoutes);
+app.use('/', routes);
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
