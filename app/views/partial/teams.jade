@@ -1,4 +1,20 @@
-.container
-	p
-		{{ teams }}
-	
+.container.container-shadow
+	table.table.table-striped
+		thead
+			tr
+				th Team ID
+				th.text-center Team Name
+				th
+		tbody
+			tr
+				td(colspan="3")
+					input.form-control(type="search", ng-model="query", placeholder="Search...")
+			tr(ng-repeat="team in teams | filter:query as results")
+				td {{ team.id }}
+				td.text-center {{ team.Name }}
+				td.text-right
+					button.btn.btn-default.btn-sm Edit
+					button.btn.btn-default.btn-sm Remove
+			tr(ng-if="results.length == 0")
+				td(colspan="3")
+					strong No teams found...
