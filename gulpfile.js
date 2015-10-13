@@ -90,6 +90,12 @@ gulp.task('copy', function() {
 		'node_modules/font-awesome/css/font-awesome.css'
 	])
 	.pipe(gulp.dest('./app/lib/css'));
+	
+	gulp.src([
+		// Fonts
+		'node_modules/font-awesome/fonts/**'
+	])
+	.pipe(gulp.dest('./app/lib/fonts'));
 });
 
 // Minify
