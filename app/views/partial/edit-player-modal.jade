@@ -5,12 +5,16 @@
 				button.close(type="button", ng-click="close('Cancel')", data-dismiss="modal") &times;
 				h4.modal-title Edit Team
 			.modal-body
-				label Team Name
-				// Make this a formly form
-				input.form-control(type="text", ng-model="player.Name", required)
-				input.form-control(type="text", ng-model="player.Score", required)
-				// pass teams list into select here
-				input.form-control(type="text", ng-model="player.Team", required)
+				.form-group
+					label(for="#nameText") Player Name
+					input#nameText.form-control(type="text", ng-model="player.Name", required)
+				.form-group
+					label(for="#scoreText") Score
+					input#scoreNumber.form-control(type="number", ng-model="player.Score", required)
+				.form-group
+					label(for="#teamSelect") Team Name
+					select#teamSelect.form-control
+						option(ng-repeat="team in teamlist", value="team.value") {{ team.name }}
 			.modal-footer
 				button.btn.btn-default(type="button", ng-click="close('Cancel')", data-dismiss="modal") Cancel
 				button.btn.btn-default(type="button", ng-click="updatePlayer('Cancel')", data-dismiss="modal") Save

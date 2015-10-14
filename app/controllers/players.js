@@ -4,7 +4,7 @@ app.controller('PlayersController', function($scope, PlayerService, TeamService,
   PlayerService.getAll().success(function(data) {
     $scope.players = data.object;
   });
-  
+
   var teams = [];
   TeamService.getAll().success(function(result) {
     result.object.forEach(function(team) {
@@ -14,9 +14,9 @@ app.controller('PlayersController', function($scope, PlayerService, TeamService,
       });
     });
   });
-  
+
   $scope.newPlayer = {};
-  
+
   $scope.fields = [
     {
       key: 'Name',
@@ -36,7 +36,7 @@ app.controller('PlayersController', function($scope, PlayerService, TeamService,
       }
     }
   ];
-  
+
   $scope.onSubmit = function() {
     PlayerService.create($scope.newPlayer);
     PlayerService.getAll().success(function(data) {
@@ -44,7 +44,7 @@ app.controller('PlayersController', function($scope, PlayerService, TeamService,
     });
     $scope.newPlayer = {};
   };
-  
+
   $scope.showEditModal = function(player) {
     ModalService.showModal({
       templateUrl: 'partial/edit-player-modal',
@@ -64,10 +64,10 @@ app.controller('EditPlayerController', function($scope, close, player, teams, Pl
   $scope.close = function(result) {
     close(result, 500);
   };
+  $scope.teamlist = teams;
   $scope.updatePlayer = function(result) {
-    console.log('hello');
     PlayerService.update(player.id, player).success(function(data) {
-      close(result, 500);  
+      close(result, 500);
     });
   };
 });
