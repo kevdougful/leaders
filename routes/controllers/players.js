@@ -1,4 +1,5 @@
 'use strict';
+
 var respond = require('./utils').respond;
 
 module.exports = function(models) {
@@ -57,10 +58,23 @@ module.exports = function(models) {
 		});
 	};
 
+	var deletePlayer = function(req, res, next) {
+		models.Player.destroy({
+			where: {
+				id: req.params.player_id
+			}
+		}).then(function(player) {
+			respond(res, 200, true, null, player);
+		}).catch(function(err) {
+			respond(res, 500, false, err.message);
+		});
+	};
+
 	return {
 		getAll: getAll,					// GET /api/players
-		getById: getById,				// GET /api/player/:sample_id
+		getById: getById,				// GET /api/player/:player_id
 		createPlayer: createPlayer,		// POST /api/player/create
-		updatePlayer: updatePlayer		// PUT /api/player/:sample_id/update
+		updatePlayer: updatePlayer,		// PUT /api/player/:player_id/update
+		deletePlayer: deletePlayer		// DELETE /api/player/:player_id
 	};
 };

@@ -1,10 +1,12 @@
 'use strict';
 
 app.controller('PlayersController', function($scope, PlayerService, TeamService, ModalService) {
-  PlayerService.getAll().success(function(data) {
-    $scope.players = data.object;
-  });
-
+  $scope.fetch = function() {
+    PlayerService.getAll().success(function(data) {
+      $scope.players = data.object;
+    });
+  };
+  $scope.fetch();
   var teams = [];
   TeamService.getAll().success(function(result) {
     result.object.forEach(function(team) {
@@ -57,6 +59,19 @@ app.controller('PlayersController', function($scope, PlayerService, TeamService,
       modal.element.modal();
     });
   };
+  
+  $scope.showDeleteModal = function(player) {
+    ModalService.showModal({
+      templateUrl: 'partial/delete-player-modal',
+      controller: 'DeletePlayerController',
+      inputs: {
+        player: player,
+        fetch: $scope.fetch
+      }
+    }).then(function(modal) {
+      modal.element.modal();
+    });
+  };
 });
 
 app.controller('EditPlayerController', function($scope, close, player, teams, PlayerService) {
@@ -69,6 +84,19 @@ app.controller('EditPlayerController', function($scope, close, player, teams, Pl
     PlayerService.update(player.id, player).success(function(data) {
       close(result, 500);
     });
+  };
+});
+
+app.controller('DeletePlayerController', function($scope, close, player, fetch, PlayerService) {
+  $scope.player = player;
+  $scope.close = function(result) {
+    close(result, 500);
+  };
+  $scope.deletePlayer = function(result) {
+    PlayerService.delete(player.id).success(function(data) {
+      close(result, 500);
+    });
+    fetch();
   };
 });
 

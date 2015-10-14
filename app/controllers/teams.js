@@ -1,10 +1,12 @@
 'use strict';
 
 app.controller('TeamsController', function($scope, TeamService, ModalService) {
-  TeamService.getAll().success(function(data) {
-    $scope.teams = data.object;
-  });
-
+  $scope.fetch = function() {
+    TeamService.getAll().success(function(data) {
+      $scope.teams = data.object;
+    });
+  };
+  $scope.fetch();
   $scope.newTeam = {};
 
   $scope.fields = [
@@ -32,7 +34,21 @@ app.controller('TeamsController', function($scope, TeamService, ModalService) {
       templateUrl: 'partial/edit-team-modal',
       controller: 'EditTeamController',
       inputs: {
-        team: team
+        team: team,
+        fetch: $scope.fetch()
+      }
+    }).then(function(modal) {
+      modal.element.modal();
+    });
+  };
+  
+  $scope.showDeleteModal = function(team) {
+    ModalService.showModal({
+      templateUrl: 'partial/delete-team-modal',
+      controller: 'DeleteTeamController',
+      inputs: {
+        team: team,
+        fetch: $scope.fetch
       }
     }).then(function(modal) {
       modal.element.modal();
@@ -49,6 +65,19 @@ app.controller('EditTeamController', function($scope, close, team, TeamService) 
     TeamService.update(team.id, team).success(function(data) {
       close(result, 500);
     });
+  };
+});
+
+app.controller('DeleteTeamController', function($scope, close, team, fetch, TeamService) {
+  $scope.team = team;
+  $scope.close = function(result) {
+    close(result, 500);
+  };
+  $scope.deleteTeam = function(result) {
+    TeamService.delete(team.id).success(function(data) {
+      close(result, 500);
+    });
+    fetch();
   };
 });
 

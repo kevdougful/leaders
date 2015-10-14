@@ -13,4 +13,7 @@ app.service('TeamService', function($http, API) {
 	this.update = function(id, team) {
 		return $http.put(API.TEAMS.UPDATE + id, team);
 	};
+	this.delete = function(id) {
+		return $http.delete(API.TEAMS.DELETE + id);
+	};
 });

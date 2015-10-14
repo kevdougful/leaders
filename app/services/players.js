@@ -13,4 +13,7 @@ app.service('PlayerService', function($http, API) {
 	this.update = function(id, player) {
 		return $http.put(API.PLAYERS.UPDATE + id, player);
 	};
+	this.delete = function(id) {
+		return $http.delete(API.PLAYERS.DELETE + id);
+	};
 });

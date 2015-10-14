@@ -22,7 +22,7 @@
 				td.text-center {{ player.Score }}
 				td.text-right
 					button.btn.btn-default.btn-sm(href="", ng-click="showEditModal(player)") Edit
-					button.btn.btn-default.btn-sm Remove
+					button.btn.btn-default.btn-sm(href="", ng-click="showDeleteModal(player)") Remove
 			tr(ng-if="results.length == 0")
 				td(colspan="5")
 					strong No teams found...
