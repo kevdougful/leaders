@@ -19,14 +19,18 @@ html(lang='en', ng-app="app")
             span.icon-bar
           a.navbar-brand(href="/") Leaderboard
         #navbar.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li
-              a(href="/leaders") Leaders
+          ul.nav.navbar-nav.navbar-right
             li.dropdown
-              a(href="/teams") Teams
-            li.dropdown
-              a(href="/players") Players
-              
+              a(href="", data-toggle="dropdown", role="button")
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href="/leaders") Leaders
+                li
+                  a(href="/teams") Teams
+                li
+                  a(href="/players") Players
+                
     div(ng-view)
     
     // jQuery / Bootstrap
