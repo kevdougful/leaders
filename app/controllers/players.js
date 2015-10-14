@@ -71,3 +71,21 @@ app.controller('EditPlayerController', function($scope, close, player, teams, Pl
     });
   };
 });
+
+app.controller('PlayerController', function($scope, $routeParams, PlayerService, TeamService) {
+  TeamService.getAll().success(function(data) {
+    $scope.teams = data.object;
+  });
+  $scope.player = {};
+  PlayerService.getOne($routeParams.id).success(function(data) {
+    $scope.player = data.object;
+  });
+  $scope.update = function() {
+    PlayerService.update($scope.player.id, $scope.player)
+      .success(function(data) {
+        PlayerService.getOne($scope.player.id).success(function(data) {
+          $scope.player = data.object;
+        });
+    });
+  };
+});

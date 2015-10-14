@@ -53,22 +53,16 @@ app.controller('EditTeamController', function($scope, close, team, TeamService) 
 });
 
 app.controller('TeamController', function($scope, $routeParams, TeamService) {
+  $scope.team = {};
   TeamService.getOne($routeParams.id).success(function(data) {
     $scope.team = data.object;
   });
-  var update = function() {
-    TeamService.update($routeParams.id, $scope.newTeam).success(function(data) {
-      $scope.team = data.object;
+  $scope.update = function() {
+    TeamService.update($scope.team.id, $scope.team)
+      .success(function(data) {
+        TeamService.getOne($scope.team.id).success(function(data) {
+          $scope.team = data.object;
+        });
     });
-  };
-  $scope.newTeam = {};
-  $scope.fields = [
-    {
-
-    }
-  ];
-
-  return {
-    update: update
   };
 });
