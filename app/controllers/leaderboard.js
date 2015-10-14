@@ -1,7 +1,5 @@
 'use strict';
 
-app.controller('LeaderboardController', LeaderboardController);
-function LeaderboardController($scope) {
-  var vm = this;
-  
-}
+app.controller('LeaderboardController', function($scope, $http, $timeout, API) {
+  $scope.leaders
+});

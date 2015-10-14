@@ -32,6 +32,10 @@ var app = angular.module('app', [
       templateUrl: 'partial/player',
       controller: 'PlayerController'
     })
+    .when('/leaders', {
+      templateUrl: 'partial/leaderboard',
+      controller: 'LeaderboardController'
+    })
     .otherwise({ redirectTo: '/' })
   $locationProvider.html5Mode(true);
 });
