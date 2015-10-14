@@ -1,6 +1,6 @@
 {
   "name": "leaders",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Simple web app for managing teams and players in a competition.",
   "main": "server.js",
   "scripts": {
