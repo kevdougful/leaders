@@ -16,3 +16,6 @@ app.constant('API', {
   },
   LEADERS: '/api/leaders'
 });
+app.constant('APP', {
+  VERSION: '0.1.0'
+});
