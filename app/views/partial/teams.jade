@@ -8,7 +8,7 @@
 		thead
 			tr
 				th Team ID
-				th.text-center Team Name
+				th Team Name
 				th
 		tbody
 			tr
@@ -16,7 +16,7 @@
 					input.form-control(type="search", ng-model="query", placeholder="Search...")
 			tr(ng-repeat="team in teams | filter:query as results")
 				td {{ team.id }}
-				td.text-center {{ team.Name }}
+				td {{ team.Name }}
 				td.text-right
 					button.btn.btn-default.btn-sm(href="", ng-click="showEditModal(team)") Edit
 					button.btn.btn-default.btn-sm(href="", ng-click="showDeleteModal(team)") Remove

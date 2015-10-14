@@ -7,7 +7,7 @@
 		thead
 			tr
 				th Player ID
-				th.text-center Player Name
+				th Player Name
 				th.text-center Team
 				th.text-center Score
 				th
@@ -17,7 +17,7 @@
 					input.form-control(type="search", ng-model="query", placeholder="Search...")
 			tr(ng-repeat="player in players | filter:query as results")
 				td {{ player.id }}
-				td.text-center {{ player.Name }}
+				td {{ player.Name }}
 				td.text-center {{ player.Team.Name }}
 				td.text-center {{ player.Score }}
 				td.text-right
