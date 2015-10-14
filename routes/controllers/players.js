@@ -46,7 +46,8 @@ module.exports = function(models) {
 	var updatePlayer = function(req, res, next) {
 		models.Player.update({
 			Name: req.body.Name,
-			Score: req.body.Score
+			Score: req.body.Score,
+			TeamId: req.body.TeamId
 		}, {
 			where: {
 				id: req.params.player_id

@@ -3,8 +3,10 @@
 module.exports = function(sequelize, DataTypes) {
 	var Player = sequelize.define('Player', {
 		Name: DataTypes.STRING,
-		Score: DataTypes.FLOAT
+		Score: { type: DataTypes.FLOAT, defaultValue: 0 }
 	}, {
+		paranoid: true,
+		timestamps: true,
 		classMethods: {
 			associate: function(models) {
 				Player.belongsTo(models.Team, {

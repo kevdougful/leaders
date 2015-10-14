@@ -13,8 +13,8 @@
 					input#scoreNumber.form-control(type="number", ng-model="player.Score", required)
 				.form-group
 					label(for="#teamSelect") Team Name
-					select#teamSelect.form-control
-						option(ng-repeat="team in teamlist", value="team.value") {{ team.name }}
+					select#teamSelect.form-control(ng-model="player.TeamId")
+						option(ng-repeat="team in teamlist", value="{{team.value}}") {{ team.name }}
 			.modal-footer
 				button.btn.btn-default(type="button", ng-click="close('Cancel')", data-dismiss="modal") Cancel
 				button.btn.btn-default(type="button", ng-click="updatePlayer('Cancel')", data-dismiss="modal") Save

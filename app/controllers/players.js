@@ -53,7 +53,8 @@ app.controller('PlayersController', function($scope, PlayerService, TeamService,
       controller: 'EditPlayerController',
       inputs: {
         player: player,
-        teams: teams
+        teams: teams,
+        fetch: $scope.fetch
       }
     }).then(function(modal) {
       modal.element.modal();
@@ -74,7 +75,7 @@ app.controller('PlayersController', function($scope, PlayerService, TeamService,
   };
 });
 
-app.controller('EditPlayerController', function($scope, close, player, teams, PlayerService) {
+app.controller('EditPlayerController', function($scope, close, player, teams, fetch, PlayerService) {
   $scope.player = player;
   $scope.close = function(result) {
     close(result, 500);
@@ -84,6 +85,7 @@ app.controller('EditPlayerController', function($scope, close, player, teams, Pl
     PlayerService.update(player.id, player).success(function(data) {
       close(result, 500);
     });
+    fetch();
   };
 });
 
