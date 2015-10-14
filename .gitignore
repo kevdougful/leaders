@@ -37,3 +37,6 @@ app/lib
 
 # VSCode settings
 .vscode
+
+# SQLite DBs
+*.sqlite

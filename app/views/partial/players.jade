@@ -1,0 +1,28 @@
+.container.container-shadow(style="margin-bottom: 10px;")
+	form(ng-submit="onSubmit()", name="newPlayerform", novalidate)
+		formly-form(model="newPlayer", fields="fields", form="newPlayerform")
+			button.btn.btn-primary.submit-button(type="submit", ng-disabled="newPlayerForm.$invalid") Submit
+.container.container-shadow
+	table.table.table-striped
+		thead
+			tr
+				th Player ID
+				th Player Name
+				th.text-center Team
+				th.text-center Score
+				th
+		tbody
+			tr
+				td(colspan="5")
+					input.form-control(type="search", ng-model="query", placeholder="Search...")
+			tr(ng-repeat="player in players | filter:query as results")
+				td {{ player.id }}
+				td {{ player.Name }}
+				td.text-center {{ player.Team.Name }}
+				td.text-center {{ player.Score }}
+				td.text-right
+					button.btn.btn-default.btn-sm(href="", ng-click="showEditModal(player)") Edit
+					button.btn.btn-default.btn-sm(href="", ng-click="showDeleteModal(player)") Remove
+			tr(ng-if="results.length == 0")
+				td(colspan="5")
+					strong No players found...

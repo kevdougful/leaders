@@ -1,0 +1,11 @@
+.container.container-shadow
+  .form-group
+    label(for="#playerName") Player Name
+    input#playerName.form-control(type="text", ng-model="player.Name")
+  .form-group
+    label(for="#playerScore") Score
+    input#playerScore.form-control(type="number", ng-model="player.Score")
+  .form-group
+    label(for="#playerTeam") Team Name
+    select#playerTeam.form-control(ng-model="player.TeamId")
+      option(ng-repeat="team in teams", value="team.id") {{ team.Name }}

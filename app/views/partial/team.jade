@@ -1,0 +1,22 @@
+.container
+	h4 Team {{ team.id }}
+	.form-group
+		label(for="#teamName") Team Name
+		input#teamName.form-control(type="text", ng-model="team.Name")
+	.container.container-shadow
+		table.table.table-striped
+			thead
+				tr
+					th Player ID
+					th.text-center Player Name
+					th.text-center Score
+					th
+			tbody
+				tr(ng-repeat="player in team.Players")
+					td {{ player.id }}
+					td.text-center 
+						a(ng-href="/player/id/{{ player.id }}") {{ player.Name }}
+					td.text-center {{ player.Score }}
+					td.text-right
+						button.btn.btn-default.btn-sm(href="", ng-click="showEditModal(player)") Edit
+						button.btn.btn-default.btn-sm Remove

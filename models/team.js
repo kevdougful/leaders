@@ -2,9 +2,10 @@
 
 module.exports = function(sequelize, DataTypes) {
 	var Team = sequelize.define('Team', {
-		Name: DataTypes.STRING,
-		TeamScore: DataTypes.FLOAT
+		Name: DataTypes.STRING
 	}, {
+		paranoid: true,
+		timestamps: true,
 		classMethods: {
 			associate: function(models) {
 				Team.hasMany(models.Player, {
@@ -16,6 +17,6 @@ module.exports = function(sequelize, DataTypes) {
 			}
 		}
 	});
-	
+
 	return Team;
-}
+};

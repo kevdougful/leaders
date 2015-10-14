@@ -1,45 +1,53 @@
 'use strict';
+
 var respond = require('./utils').respond;
 
 module.exports = function(models) {
-	
+
 	var getAll = function(req, res, next) {
 		models.Player.findAll({
-			// where
+			include: [
+				models.Team
+			]
 		}).then(function(player) {
 			respond(res, 200, true, null, player);
 		}).catch(function(err) {
 			respond(res, 500, false, err.message);
 		});
 	};
-	
+
 	var getById = function(req, res, next) {
 		models.Player.findOne({
 			where: {
 				id: req.params.player_id
-			}
+			},
+			include: [
+				models.Team
+			]
 		}).then(function(player) {
 			respond(res, 200, true, null, player);
 		}).catch(function(err) {
 			respond(res, 500, false, err.message);
 		});
 	};
-	
+
 	var createPlayer = function(req, res, next) {
 		models.Player.create({
 			Name: req.body.Name,
-			Score: req.body.score
+			Score: req.body.Score,
+			TeamId: req.body.TeamId
 		}).then(function(player) {
 			respond(res, 200, true, null, player);
 		}).catch(function(err) {
 			respond(res, 500, false, err.message);
 		});
 	};
-	
+
 	var updatePlayer = function(req, res, next) {
 		models.Player.update({
 			Name: req.body.Name,
-			Score: req.body.Score
+			Score: req.body.Score,
+			TeamId: req.body.TeamId
 		}, {
 			where: {
 				id: req.params.player_id
@@ -50,11 +58,24 @@ module.exports = function(models) {
 			respond(res, 500, false, err.message);
 		});
 	};
-	
+
+	var deletePlayer = function(req, res, next) {
+		models.Player.destroy({
+			where: {
+				id: req.params.player_id
+			}
+		}).then(function(player) {
+			respond(res, 200, true, null, player);
+		}).catch(function(err) {
+			respond(res, 500, false, err.message);
+		});
+	};
+
 	return {
 		getAll: getAll,					// GET /api/players
-		getById: getById,				// GET /api/player/:sample_id
+		getById: getById,				// GET /api/player/:player_id
 		createPlayer: createPlayer,		// POST /api/player/create
-		updatePlayer: updatePlayer		// PUT /api/player/:sample_id/update
+		updatePlayer: updatePlayer,		// PUT /api/player/:player_id/update
+		deletePlayer: deletePlayer		// DELETE /api/player/:player_id
 	};
-}
+};

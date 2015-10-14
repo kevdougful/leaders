@@ -1,0 +1,12 @@
+.modal.fade
+	.modal-dialog
+		.modal-content
+			.modal-header
+				button.close(type="button", ng-click="close('Cancel')", data-dismiss="modal") &times;
+				h4.modal-title Delete {{ team.Name }}?
+			.modal-body
+				p Are you sure you want to delete {{ team.Name }}?
+			.modal-footer
+				button.btn.btn-default(type="button", ng-click="close('Cancel')", data-dismiss="modal") No
+				button.btn.btn-default(type="button", ng-click="deleteTeam('Cancel')", data-dismiss="modal") Yes
+			

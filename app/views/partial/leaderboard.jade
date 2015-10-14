@@ -1,0 +1,33 @@
+.row
+  .col-lg-6
+    .container-shadow
+      h2 Top 10 Teams
+      table.table.table-striped.leaderboard
+        thead
+          tr
+            th Team #
+            th Team Name
+            th Score
+        tbody
+          tr(ng-repeat="team in leaders | orderBy:'-Score' | limitTo:10 ")
+            td {{ team.id }}
+            td {{ team.Name }}
+            td {{ team.Score }}
+      button.btn.btn-link(ng-click="stopLoop()") {{ updated | date:"HH:mm:ss" }}
+  .col-lg-6
+    .container-shadow
+      h2 Top 10 Players
+      table.table.table-striped.leaderboard
+        thead
+          tr
+            th Player ID
+            th Player Name
+            th Team
+            th Score
+        tbody
+          tr(ng-repeat="player in players | orderBy:'-Score' | limitTo:10 ")
+            td {{ player.id }}
+            td {{ player.Name }}
+            td {{ player.Team.Name }}
+            td {{ player.Score }}
+      button.btn.btn-link(ng-click="stopLoop()") {{ updated | date:"HH:mm:ss" }}
